@@ -19,8 +19,9 @@ return new class extends Migration
             $table->double('price', 8, 2)->unsigned();
             $table->string('description')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
